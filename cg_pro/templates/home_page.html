@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    CG Algorithms
+{% endblock %}
+
+
+{% block content %}
+
+
+<table class="table table-dark table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Section</th>
+      <th scope="col">Algorithm</th>
+      <th scope="col">Learn</th>
+      <th scope="col">Code</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for i in items %}
+    <tr>
+      <th scope="row">{{ i.c1 }}</th>
+      <td>{{ i.c2 }}</td>
+      <td>
+         <a href="{{ i.c3 }}"><button class="btn btn-outline btn-success">Click Here</button></a>
+
+      </td>
+      <td>{{ i.c4 }}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

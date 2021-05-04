@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Line Drawing
+{% endblock %}
+
+
+{% block content %}
+
+
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">
+            Please Provide the Input Details
+            </h1>
+            <br>
+            {{ form.point1_x.label() }}
+            {{ form.point1_x(class="form-control", placeholder="Enter Point1 X") }}
+
+            {{ form.point1_y.label() }}
+            {{ form.point1_y(class="form-control", placeholder="Enter Point1 Y") }}
+
+
+            {{ form.point2_x.label() }}
+            {{ form.point2_x(class="form-control", placeholder="Enter Point2 X") }}
+
+            {{ form.point2_y.label() }}
+            {{ form.point2_y(class="form-control", placeholder="Enter Point2 Y") }}
+
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+        {% if d %}
+        <h1> {{ d.op_string }}  </h1>
+        <img src="{{ d.image }}">
+        {% endif %}
+    </div>
+</body>
+
+{% endblock %}
