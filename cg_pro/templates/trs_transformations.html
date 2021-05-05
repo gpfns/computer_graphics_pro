@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Ellipse Drawing
+    Translation Rotation Scaling
 {% endblock %}
 
 
@@ -13,16 +13,21 @@
         <form method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }}
             <h2 class="h3 mb-3 font-weight-normal">
-            Please Provide the Input Details for <h1> Ellipse Drawing </h1>
+            Please Provide the Input Details for
+                <h1> Translation Rotation Scaling Transformations </h1>
 
             </h2>
             <br>
             {{ form.point_a.label() }}
-            {{ form.point_a(class="form-control", placeholder="Enter Length of Semi Major Axis") }}
+            {{ form.point_a(class="form-control", placeholder="Example : (1,2),(3,4),(9,4) - Enter Points in (x,y) separated by ',' ") }}
 
 
             {{ form.point_b.label() }}
-            {{ form.point_b(class="form-control", placeholder="Enter Length of Semi Minor Axis") }}
+            {{ form.point_b(class="form-control", placeholder="Enter Transformation Parameters separated by ',' ") }}
+
+
+            {{ form.option.label() }}
+            {{ form.option(class="form-control") }}
 
             <br>
 
@@ -31,7 +36,9 @@
         </form>
         {% if d %}
         <h1> {{ d.op_string }}  </h1>
-        <img src="{{ d.image }}">
+        <img src="{{ d.image1 }}">
+        <img src="{{ d.image2 }}">
+
         {% endif %}
     </div>
 </body>

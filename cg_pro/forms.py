@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField, FloatField
+from wtforms import StringField, IntegerField, SubmitField, FloatField, SelectField
 from wtforms.validators import Length, EqualTo, Email, DataRequired
 
 
@@ -19,4 +19,14 @@ class CircleDrawing(FlaskForm):
 class EllipseDrawing(FlaskForm):
     point_a = IntegerField(label='Length of Semi Major Axis - a/Rx', validators=[DataRequired()])
     point_b = IntegerField(label='Length of Semi Minor Axis - b/Ry', validators=[DataRequired()])
+    submit = SubmitField(label='Get Result')
+
+
+class TRSFrom(FlaskForm):
+    point_a = StringField(label='Input Points', validators=[DataRequired()])
+    point_b = StringField(label='Transformation Parameters', validators=[DataRequired()])
+    option = SelectField(label='Pick Transformation',
+                         choices=[('T', 'Translation'),
+                                  ('R', 'Rotation'),
+                                  ('S', 'Scaling')])
     submit = SubmitField(label='Get Result')

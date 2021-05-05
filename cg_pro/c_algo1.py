@@ -1,4 +1,4 @@
-from math import sqrt, cos, sin
+from math import sqrt, cos, sin,radians
 
 
 def bf_ld(x1, y1, x2, y2):
@@ -60,7 +60,7 @@ def sc_circle_drawing(r):
 def sc_circle_drawing_deg(r):
     l2 = []
     for i in range(90):
-        l2.append((round(r * cos(i)), round(r * sin(i))))
+        l2.append((round(r * cos(radians(i))), round(r * sin(radians(i)))))
     return(l2)
 
 
@@ -127,4 +127,5 @@ def ellipse_drawing_algo(a, b):
             dx += a * b ** 2
             dy -= 2 * a ** 2
             p2 += dx - dy + a ** 2
-    return(l1)
+    return l1
+

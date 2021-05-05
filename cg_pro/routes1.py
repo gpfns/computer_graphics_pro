@@ -1,7 +1,7 @@
 from cg_pro import app
 from flask import render_template, url_for, redirect
 from cg_pro.forms import *
-from cg_pro.c_algo import *
+from cg_pro.c_algo1 import *
 from cg_pro.routes2 import point_op
 
 
@@ -22,9 +22,16 @@ def home_page():
          'c3': url_for('circle_drawing', a=3), 'c4': 'link'},
         {'c1': "Ellipse Drawing", 'c2': 'Midpoint Ellipse Drawing',
          'c3': url_for('ellipse_drawing'), 'c4': 'link'},
+        {'c1': "Geometric Transformation", 'c2': 'Translation Rotation Scaling',
+         'c3': url_for('trans_rotate_scaling'), 'c4': 'link'},
 
     ]
     return render_template('home_page.html', items=items)
+
+
+@app.route('/cg_lab_programs')
+def cg_lab_programs():
+    return render_template('cg_lab_programs.html')
 
 
 @app.route('/line_drawing/<int:a>', methods=['GET', 'POST'])
