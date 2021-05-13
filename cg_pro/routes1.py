@@ -2,7 +2,7 @@ from cg_pro import app
 from flask import render_template, url_for, redirect
 from cg_pro.forms import *
 from cg_pro.c_algo1 import *
-from cg_pro.routes2 import point_op
+from cg_pro.plotting_graphs import point_op
 
 
 @app.route('/')

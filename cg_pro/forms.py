@@ -27,6 +27,8 @@ class TRSFrom(FlaskForm):
     point_b = StringField(label='Transformation Parameters', validators=[DataRequired()])
     option = SelectField(label='Pick Transformation',
                          choices=[('T', 'Translation'),
-                                  ('R', 'Rotation'),
-                                  ('S', 'Scaling')])
+                                  ('S', 'Scaling'),
+                                  ('R', 'Rotation Anti Clockwise'),
+                                  ('NR', 'Rotation Clockwise'),
+                                  ])
     submit = SubmitField(label='Get Result')

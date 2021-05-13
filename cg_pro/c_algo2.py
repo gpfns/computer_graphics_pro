@@ -26,6 +26,14 @@ def b_r(theta):
     ])
 
 
+def b_r_c(theta):
+    return np.mat([
+        [cos(r(theta)), sin(r(theta)), 0],
+        [-sin(r(theta)), cos(r(theta)), 0],
+        [0, 0, 1]
+    ])
+
+
 def inp_m(x, y):
     return np.mat([
         [x],
@@ -58,4 +66,11 @@ def b_t_r(x, y):
     l1 = []
     for i in x:
         l1.append(b_r(y) * inp_m(i[0], i[1]))
+    return l1
+
+
+def b_t_cr(x, y):
+    l1 = []
+    for i in x:
+        l1.append(b_r_c(y) * inp_m(i[0], i[1]))
     return l1

@@ -49,6 +49,37 @@ def plot_view_1(x, y, b=None):
     return png_image_b64_string
 
 
+def plot_view_subs(x1, y1, x2, y2, b=None):
+    fig = Figure()
+    axis1 = fig.add_subplot(2, 1, 1)
+    axis2 = fig.add_subplot(2, 1, 2)
+    fig.tight_layout(pad=3.0)
+    axis1.set_title("Original")
+    axis1.set_xlabel("X-axis")
+    axis1.set_ylabel("Y-axis")
+    axis2.set_xlabel("X-axis")
+    axis2.set_ylabel("Y-axis")
+    axis2.set_title(b)
+    axis1.grid()
+    axis2.grid()
+    for i in zip(x1, y1):
+        axis1.annotate(str((round(i[0], 2), round(i[1], 2))), i)
+    for i in zip(x2, y2):
+        axis2.annotate(str((round(i[0], 2), round(i[1], 2))), i)
+
+    axis1.plot(x1, y1, "ro-")
+    axis2.plot(x2, y2, "ro-")
+    # Convert plot to PNG image
+    png_image = io.BytesIO()
+    FigureCanvas(fig).print_png(png_image)
+
+    # Encode PNG image to base64 string
+    png_image_b64_string = "data:image/png;base64,"
+    png_image_b64_string += base64.b64encode(png_image.getvalue()).decode('utf8')
+
+    return png_image_b64_string
+
+
 def point_op(l1, b=None):
     x = list(map(lambda k: k[0], l1))
     y = list(map(lambda k: k[1], l1))
@@ -61,3 +92,15 @@ def point_op_2(l1, b=None):
     y = list(map(lambda k: k[1, 0], l1))
     image = plot_view_1(x, y, b)
     return image
+
+
+def points_ready(l1):
+    x = list(map(lambda k: k[0], l1))
+    y = list(map(lambda k: k[1], l1))
+    return x, y
+
+
+def points_matrix_ready(l1):
+    x = list(map(lambda k: k[0, 0], l1))
+    y = list(map(lambda k: k[1, 0], l1))
+    return x, y
