@@ -5,3 +5,4 @@ app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029589e'
 
 from cg_pro import routes1
 from cg_pro import routes3
+from cg_pro import routes_svuce_results
