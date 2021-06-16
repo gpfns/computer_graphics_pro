@@ -9,7 +9,7 @@
 
 <body class="text-center">
     <div class="container">
-        <form method="POST" class="form-register" style="color:white">
+        <form action="{{ url_for('sem5_results') }}" method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }}
             <h1 class="h3 mb-3 font-weight-normal">
             SVUCE CSE SEM 5 Results
@@ -23,9 +23,30 @@
             {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
 
         </form>
+
         {% if d %}
          {{ d.html_returned|safe }}
         {% endif %}
+
+
+        {% if d2 %}
+<br><br><br><br><br><br>
+    <h1> CSE SEM 5 Results </h1>
+        <div class="text-success h3">
+
+        {% for i in d2 %}
+
+        {{ loop.index }} .
+        {{ i.Roll_No  }} -->
+        {{ i.Total_Marks }} ,
+        {{ i.Student_Gpa }}
+<br>
+        {% endfor %}
+</div>
+         {% endif %}
+
+
+
     </div>
 </body>
 
