@@ -24,6 +24,13 @@
 
         </form>
 
+        <br>
+<a href="{{ url_for('sem5_all_results_r') }}"> Sem 5 Results Roll Number Wise</a>
+    <br>
+<a href="{{ url_for('sem5_all_results_m') }}"> Sem 5 Results Marks Wise</a>
+    <br>
+<a href="{{ url_for('sem5_all_results_g') }}"> Sem 5 Results CGPA Wise</a>
+
         {% if d %}
          {{ d.html_returned|safe }}
         {% endif %}
@@ -48,6 +55,8 @@
 
 
     </div>
+
+
 </body>
 
 {% endblock %}
