@@ -53,6 +53,24 @@ def sem5_all_results_g():
     return render_template('cse_sem5.html', form=CseSem5(), d2=t1)
 
 
+@app.route('/sem6-all-r')
+def sem6_all_results_r():
+    t1 = col.find().sort("Roll_No")
+    return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
+
+
+@app.route('/sem6-all-m')
+def sem6_all_results_m():
+    t1 = col.find().sort("Total_Marks", -1)
+    return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
+
+
+@app.route('/sem6-all-g')
+def sem6_all_results_g():
+    t1 = col.find().sort("Student_Gpa", -1)
+    return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
+
+
 def get_result_s5(rn):
     t1 = col.find_one({'Roll_No': int(rn)})
     return t1['Html_Res']
