@@ -55,19 +55,19 @@ def sem5_all_results_g():
 
 @app.route('/sem6-all-r')
 def sem6_all_results_r():
-    t1 = col.find().sort("Roll_No")
+    t1 = col2.find().sort("Roll_No")
     return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
 
 
 @app.route('/sem6-all-m')
 def sem6_all_results_m():
-    t1 = col.find().sort("Total_Marks", -1)
+    t1 = col2.find().sort("Total_Marks", -1)
     return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
 
 
 @app.route('/sem6-all-g')
 def sem6_all_results_g():
-    t1 = col.find().sort("Student_Gpa", -1)
+    t1 = col2.find().sort("Student_Gpa", -1)
     return render_template('cse_sem6.html', form=CseSem5(), d2=t1)
 
 
