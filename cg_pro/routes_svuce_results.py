@@ -74,12 +74,12 @@ def sem6_all_results_g():
 def get_result_s5(rn):
     t1 = col.find_one({'Roll_No': int(rn)})
     if t1 is None:
-        return "<h2 class='danger'> Please Check your Roll Number.</h2>"
+        return " <br> <h2 class='text-danger'> Please Check your Roll Number.</h2>"
     return t1['Html_Res']
 
 
 def get_result_s6(rn):
     t1 = col2.find_one({'Roll_No': int(rn)})
     if t1 is None:
-        return "<h2 class='danger'> Please Check your Roll Number.</h2>"
+        return "<br> <h2 class='text-danger'> Please Check your Roll Number.</h2>"
     return t1['Html_Res']
